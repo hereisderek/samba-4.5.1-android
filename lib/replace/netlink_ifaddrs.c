@@ -64,7 +64,7 @@ static struct sockaddr* copy_addr(int family, const void* data, size_t byteCount
 }
 
 static void set_addr(struct ifaddrs_container *ifa, int family, const void *data, size_t byteCount) {
-  if (ifa->ifa.ifa_addr = NULL) {
+  if (ifa->ifa.ifa_addr == NULL) {
     // Assume this is IFA_LOCAL, if not set_local_addr will fix it.
     ifa->ifa.ifa_addr = copy_addr(family, data, byteCount, &ifa->addr, ifa->idx);
   } else {
